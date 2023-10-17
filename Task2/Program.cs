@@ -2,25 +2,23 @@
 {
     static void Main(string[] args)
     {
-        Console.OutputEncoding = System.Text.Encoding.Unicode;
-        Console.ForegroundColor = ConsoleColor.Green; // устанавливаем цвет
-        Console.Write("Введіть ключ доступу (pro/exp): ");
-        Console.ResetColor(); // сбрасываем в стандартный
-        string key = Console.ReadLine().ToLower();
+        try
+        {
+            int a = 10;
+            int b = 5;
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            Console.WriteLine($"Додавання: {a} + {b} = {MathUtility.Додавання(a, b)}");
+            Console.WriteLine($"Віднімання: {a} - {b} = {MathUtility.Віднімання(a, b)}");
+            Console.WriteLine($"Множення: {a} * {b} = {MathUtility.Множення(a, b)}");
 
-        DocumentWorker doc;
-
-        if (key == "pro")
-            doc = new ProDocumentWorker();
-        else if (key == "exp")
-            doc = new ExpertDocumentWorker();
-        else
-            doc = new DocumentWorker();
-
-        doc.OpenDocument();
-        doc.EditDocument();
-        doc.SaveDocument();
-
-        Console.ReadKey();
+            int c = 10;
+            int d = 0;
+            Console.WriteLine($"Ділення: {c} / {d} = {MathUtility.Ділення(c, d)}");
+        }
+        catch (DivideByZeroException ex)
+        {
+            Console.WriteLine(ex.Message);
+            Console.ReadKey();
+        }
     }
 }
