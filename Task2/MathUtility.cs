@@ -6,17 +6,14 @@ public static class MathUtility
     {
         return a + b;
     }
-
     public static int Віднімання(int a, int b)
     {
         return a - b;
     }
-
     public static int Множення(int a, int b)
     {
         return a * b;
     }
-
     public static double Ділення(int a, int b)
     {
         if (b == 0)
